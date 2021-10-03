@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-FoodBlog-6EFC6487-C8E0-43BD-9A1B-40E8B17931F7</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.10.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Npgsql" Version="4.1.5" />
+    <PackageReference Include="Stripe.net" Version="39.29.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="app.db" />
+    <None Include="wwwroot\css\pexels-ray-piedra-1565982.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\PostComment\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PostComment\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PostComment\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PostComment\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\PostComment\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Bløtkake.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Boller.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Cookies.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Experience1.jfif" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Experience2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Experience3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Restaurant1.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Restaurant2.jfif" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Restaurant3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\DummyPostImages\Sjokoladekake.jpg" />
+  </ItemGroup>
+
+</Project>

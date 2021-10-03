@@ -1,0 +1,106 @@
+﻿@using Org.BouncyCastle.Crypto.Tls
+@model Post
+@{
+    Layout = "_Layout";
+}
+<script src="https://kit.fontawesome.com/3610842cff.js" crossorigin="anonymous"></script>
+
+
+
+@{
+    var comments = (IEnumerable<FoodBlog.Models.PostComment>) ViewBag.Comments;
+    decimal ratingSum = ViewBag.RatingSum;
+    decimal ratingCount = ViewBag.RatingCount;
+
+    decimal rating = 0;
+    if (ratingCount > 0)
+    {
+        rating = (ratingSum/ratingCount);
+    }
+    var totalRating = rating;
+    
+}
+
+<div>
+    <h5>This post have been rated with: </h5>@totalRating<div class="fas fa-star"></div><h5>By @ratingCount Users</h5>
+    <h1>@Model.Title</h1>
+    <div class="row">
+        <div class="col-12">
+            <p>@Model.Content</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <img src="@Model.ImageWebPath" asp-append-version="true"></img>
+        </div>
+    </div>
+
+
+
+
+    <td>
+
+
+    </td>
+</div>
+        
+    <div class="row">
+        <div class="col-6">
+            <p>
+                Written by:
+            </p>
+        </div>
+        <div class="col-6">
+            Created: @Model.Time
+        </div>
+    </div>
+        
+        
+        
+
+
+    
+            
+        
+  
+    
+        
+        
+
+@foreach(var c in comments)
+    {
+        <hr/>
+        <div class="row">
+            <div class="col-md-4">
+                <i>@c.ThisDateTime</i>
+                @for (var i = 1; i <= c.Rating; i++)
+                {
+                    <span class="starGlowN"></span>
+                }
+                @for (var i = (c.Rating + 1); i <= 5; i++)
+                {
+                    <span class="starFadeN"></span>
+                }
+            </div>
+            <div class="col-md-8">
+                @Html.Raw(c.Comments.Replace("\n","<br />"))
+            </div>
+        </div>
+    }
+
+@Html.Partial("_CommentBox")
+
+
+
+
+
+
+
+<div>|
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+    
+
+

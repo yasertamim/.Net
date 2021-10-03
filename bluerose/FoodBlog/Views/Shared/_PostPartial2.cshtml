@@ -1,0 +1,13 @@
+@model Post
+
+<a asp-controller="Blog" asp-action="Details" asp-route-id="@Model.Id" id="Detailslink">
+    
+    <div class="card">
+        <div class="card-img" style="background-image: url('@Model.ImageWebPath');"></div>
+        <div class="card-body">
+            <h4 class="card-title" >@Model.Title</h4>
+            <p class="model-text">@Model.Summary</p>
+            
+        </div>
+  </div>  
+</a>

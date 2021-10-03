@@ -1,0 +1,87 @@
+﻿@model PaginatedList<Post>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h1 style="">Recipies</h1> 
+
+
+
+<head>
+<style> 
+input {
+  width: 100px;
+  height: 50px;
+  background-color: #80bdff;
+  position: relative;
+  animation-name: text;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+}
+p1 {
+  width: 100px;
+  height: 50px;
+  background-color: #f7f7f7;
+  position: relative;
+  animation-name: text;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+}
+
+h1{
+ 
+ 
+  position: relative;
+  animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: 3;
+}
+
+</style>
+</head>
+
+<form asp-action="Recipes" method="get">
+    <div class="form-actions no-color"  >
+        <p>
+           <img src="\images\rec.jpg" class="img-responsive" width="500" height="330" />
+            <h1>Find by name:</h1> <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-success" /> 
+           <p1> <a asp-action="Index">Back to Full List</a>  </p1>
+        </p>
+    </div>
+</form>
+
+<hr >
+
+
+
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+
+        <partial name="_PostPartial2" model="item"/>
+
+    }</div>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Recipes"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Recipes"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
+
+

@@ -1,0 +1,59 @@
+﻿@model Post
+@{
+    Layout = "_Layout";
+}
+
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+    //Creating a list of enum PostType
+    IList<SelectListItem> languageList= Enum.GetValues(typeof(EnumModel.PostType)).Cast<EnumModel.PostType>().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }).ToList();
+    var postTypeList = new SelectList(languageList,"Value","Text");
+    
+    IList<SelectListItem> languageList1= Enum.GetValues(typeof(EnumModel.PostReview)).Cast<EnumModel.PostReview>().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }).ToList();
+    var postReviewList = new SelectList(languageList1,"Value","Text");
+}
+
+<h2>Add Post</h2>
+<div class="container-fluid" id="addcontainer">
+
+ 
+@using(Html.BeginForm("Add", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.DropDownList("PostType", new List<SelectListItem>
+    {
+       new SelectListItem{ Text="Recipies", Value = "1" },
+       new SelectListItem{ Text="Experiences", Value = "2" },
+       new SelectListItem{ Text="Restauranter", Value = "3" }
+    }, "Select PostType")
+    
+
+
+
+<p>@ViewBag.Message</p>
+
+<form asp-action="Add" method="post"  enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" placeholder="Title">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Summary"></label>
+        <input asp-for="Summary" class="form-control" placeholder="Summary">
+        <span asp-validation-for="Summary" class="text-danger"></span>
+    </div>
+    <div class="form-group" id="Content">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control" placeholder="Content"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageRootPath" class="control-label">Upload Image</label>
+        <input  class="form-control" type="file" name="file" id="file"/>
+        <span ></span>
+        </div>
+    
+    <button id="Submit" type="submit" class="btn btn-primary">Create new post</button>
+</form>}</div>

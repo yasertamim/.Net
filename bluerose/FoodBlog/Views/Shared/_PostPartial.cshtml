@@ -1,0 +1,79 @@
+﻿@model Post
+@Model.Review
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<tr>
+    <td class="Nickname">
+        @Html.DisplayFor(modelItem => Model.User.Nickname)
+    </td>
+    <td class="Title">
+        @Html.DisplayFor(modelItem => Model.Title)
+    </td>
+    <td class="Summary">
+        @Html.DisplayFor(modelItem => Model.Summary)
+    </td>
+    <td class="Content">
+        @Html.DisplayFor(modelItem => Model.Content)
+    </td>
+    
+    <td class="Time">
+        @Model.Time.ToString("dd.MM.yyyy")
+    </td>
+    <td class="ImageWebPath">
+        <img src="@Model.ImageWebPath" asp-append-version="true" width="160" height="200">
+    </td>
+    
+    
+    
+    <td class="rating">
+        <div class="container">
+            <div class="star-widget">
+                <input  type="radio" name="rate" id="rate-5" value=5>
+                <label for="rate-5" class="fa fa-star"></label>
+                <input  type="radio" name="rate" id="rate-4" value=4>
+                <label for="rate-4" class="fa fa-star"></label>
+                <input  type="radio" name="rate" id="rate-3" value=3>
+                <label for="rate-3" class="fa fa-star"></label>
+                <input  type="radio" name="rate" id="rate-2" value=2>
+                <label for="rate-2" class="fa fa-star"></label>
+                <input  type="radio" name="rate" id="rate-1" value=1>
+                <label for="rate-1" class="fa fa-star"></label>
+                
+                <br>
+                <br>
+                
+                <form class="hidden-form" action="#">
+                    <header></header>
+
+                    <div class="textarea">
+                        <textarea cols="30" placeholder="Legg igjen en kommentar"></textarea>
+                    </div>
+                    <div class="btn">
+                        <button type="submit">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+ 
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    </td>
+    <td>
+        <a asp-action="Details" asp-route-id="@Model.Id">Details</a> |
+            
+    </td>
+<td>
+    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a> |
+                
+</td>
+</tr>
+
+<script>
+const btn = document.querySelector("button")
+const widget = document.querySelector(".star-widget")
+btn.onclick = ()=>{
+    widget.style.display ="none";
+}
+</script>
+

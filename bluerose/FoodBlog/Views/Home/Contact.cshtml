@@ -1,0 +1,38 @@
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+@using (Html.BeginForm("SendMail", "Home"))
+{
+    <div class="container" id="contactcontainer">
+        <h1>Contact us!</h1>
+        <div class="container">
+            <label>Email</label>
+            <div class="form-group">
+                <input name="email" type="text" class="form-group" id="emailcontact">
+            </div>
+        </div>
+        <div class="container">
+            <label>Subject</label>
+            <div class="form-group">
+                <input name="title" type="text" class="form-group" id="titlecontact">
+            </div>
+        </div>
+        <div class="col-md-container">
+            <label>Message</label>
+            <div class="form-group">
+                <textarea name="content" class="form-group" id="contentcontact"></textarea>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Send message</button>
+            </div>
+        </div>
+
+    </div>
+}
+
+                

@@ -1,0 +1,41 @@
+7c37bb7  yaser tamim                    2020-12-15 fixed add image
+22b3d32  obada aldweiri                 2020-12-15  fixed bugs and added css and html to layout
+29cbcff  Sondre Eftedal                 2020-12-10 Made changes to the models so the dropdown value in Add new post was recieved by the controller and added to the database. Minor changes on the navbar. Added LINQ to the other views so they only show the content with the same Type value. Aslo fixed some minor redirect fixes
+442a888  Sondre Eftedal                 2020-12-10 Fixed the login problem
+50f2767  Sondre Eftedal                 2020-12-10 Debugging
+d4b5a5b  Sondre Eftedal                 2020-12-09 Added shipping info to stripe, added paging, made improvements to and finished the search bar, made the posts in partial views appear as cards and made a product card for the product
+1ad75dc  Sondre Eftedal                 2020-12-07 Fullførte ratingsystemet
+29c374a  Sondre Eftedal                 2020-12-05 Edited the Index page with a new partial View. Added paging so the view will pick 10 posts at a time. Routed the posts to the details View, added the rating funtionality to the details View and made some layout changes to the details page
+9d553ce  Sondre Eftedal                 2020-12-03 Edited contact form view, Add post view and made the searchbar look better. Also fixed a bug
+f76ae3c  Sondre Eftedal                 2020-12-03 Added contact form with SignalR that sends me an email with the content of the form using Gmail API
+36c0ab7  Sondre Eftedal                 2020-12-01 Designed the Index page
+cf75abb  Sondre Eftedal                 2020-12-01 Merge branch 'master' of ssh://tools.uia.no:7999/ikt201g20h/bluerose into master Added review functionality, but it is not connected to models or database yet
+a9aba70  Sondre Eftedal                 2020-11-30 La til funksjonalitet for rewiews, men de er ikke koblet mot modeller eller database enda
+b07a54c  yaser tamim                    2020-11-30 fixed the problem of accessing profile page
+b88b750  yaser tamim                    2020-11-29 fix Nickname problem
+23090aa  obada aldweiri                 2020-11-28 added value
+2d45d99  obada aldweiri                 2020-11-28 Merge branch 'startup1' of ssh://tools.uia.no:7999/ikt201g20h/bluerose into startup1
+31f4bd0  yaser tamim                    2020-11-25 editing
+cbdc5ee  yaser tamim                    2020-11-25 Merge branch 'master' of ssh://tools.uia.no:7999/ikt201g20h/bluerose into startup
+c97c694  obada aldweiri                 2020-11-24  added enum
+730731c  obada aldweiri                 2020-11-24 d
+efd108c  yaser tamim                    2020-11-24 fixed edit action
+d06ff01  yaser tamim                    2020-11-24 add Run time compilation
+0606cb3  Sondre Eftedal                 2020-11-23 Added search bar, picture upload and resized the content input
+e2e4364  yaser tamim                    2020-11-16 add delete action
+b45a664  obada aldweiri                 2020-11-14 added consent coockies
+235279d  obada aldweiri                 2020-11-14 added actions and views for add, delete, details
+0c27368  yaser tamim                    2020-11-10 fixed bugs
+300f69a  yaser tamim                    2020-11-10 Add actions to Blog controller
+c3221c4  yaser tamim                    2020-11-10 Add views
+feb7759  obada aldweiri                 2020-11-10 added layout
+5899726  yaser tamim                    2020-11-10 added edit view
+4bc2519  obada aldweiri                 2020-11-10 controller, identity, drop down, enum, initilaizer, dbset
+f98b0e1  obada aldweiri                 2020-11-03 add(models, 2 data, controllers)
+5e260a2  yaser tamim                    2020-11-03 installing packages
+98a8a30  yaser tamim                    2020-11-03 add post-model
+e391ffa  yaser hani timim               2020-10-28 add recipecs
+bd686a8  obada aldweiri                 2020-10-28  added name
+be1469b  obada aldweiri                 2020-10-28 changed names
+ecf3526  said-magomed evmurzajev        2020-10-22 Added empty project
+22c1103  said-magomed evmurzajev        2020-10-22 Added .gitignore

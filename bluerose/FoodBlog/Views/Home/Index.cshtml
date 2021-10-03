@@ -1,0 +1,177 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+	Layout="_Layout";
+}
+@using Microsoft.Extensions.Options
+@inject IOptions<StripeSettings> Stripe
+
+<div id="slides" class="carousel slide" data-ride="carousel">
+	<ul class="carousel-indicators">
+		<li data-target="#slides" data-slide-to="0" class="active"></li>
+		<li data-target="#slides" data-slide-to="1"></li>
+		<li data-target="#slides" data-slide-to="2"></li>
+	</ul>
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="pexels-engin-akyurt-1435895.jpg">
+			<div class="carousel-caption">
+				<h1 class="display-2">Cooking</h1>
+				<h3>Header 3</h3>
+				<button type="button" class="btn btn-outline-light btn-lg">SIGN UP</button>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="pexels-maarten-van-den-heuvel-2284166.jpg">
+		</div>
+		<div class="carousel-item">
+			<img src="pexels-lukas-952478.jpg">
+		</div>
+		
+	</div>
+</div>
+
+
+<div class="container-fluid">
+	<div class="container-fluid">
+		<div class="row jumbotron">
+			<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+				<p class="lead">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse volutpat in justo in molestie. Pellentesque eleifend leo et nulla ornare, nec pulvinar quam congue.
+				</p>
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+					<a href="#"><button type="button" class="btn btn-outline-secondary">Button</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--- Buy Book -->
+
+<div class="row padding">
+	<div class="col-6">
+		<h2>Buy our own cook book</h2>
+		<p>
+			Click on the button below to buy our cook book which contains the editors selections of the best recipies posted on this site.
+		</p>
+		<div class="col-6">
+			<div class="card">
+			<img
+				src="pexels-skitterphoto-1005324.jpg"
+				alt="Book photo"
+				width="200"/>
+			<h1>Bluerose Cook Book</h1>
+			<p class="price"> 300 kr</p>
+			
+			<button id="checkout-button" class="btn btn-primary">Buy now</button></div>
+		</div>
+<script type="text/javascript">
+    // Create an instance of the Stripe object with your publishable API key
+    var stripe = Stripe("pk_test_51HtOk2GZGPrFNUvXZqk9W2hxvsHllQ7KR99py1Y0J76om6lEs15saadIZsAkIQPhePLiDkRXysBJWI4dvviwjcp4002DkzzvSG");
+    var checkoutButton = document.getElementById("checkout-button");
+    checkoutButton.addEventListener("click", function () {
+        fetch("/create-session", {
+            method: "POST",
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (session) {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(function (result) {
+                // If redirectToCheckout fails due to a browser or network
+                // error, you should display the localized error message to your
+                // customer using error.message.
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function (error) {
+                console.error("Error:", error);
+            });
+    });
+</script>
+		</div>
+	</div>
+
+<hr class="light"></hr>
+
+
+
+<!--- Two Column Section -->
+<div class="container-fluid padding">
+	<div class="row padding">
+		<div class="col-lg-6">
+			<h2>Our Philosophy</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse volutpat in justo in molestie. Pellentesque eleifend leo et nulla ornare, nec pulvinar quam congue. Suspendisse libero tortor, gravida id dignissim ut, mollis ac ipsum. Integer efficitur quam libero, ac mattis dui ultrices id
+			</p>
+			<p>
+				Suspendisse et ligula sit amet dui aliquet posuere. Proin ullamcorper sem sit amet purus feugiat blandit semper et tortor. Proin consequat varius sapien, vitae eleifend mi tincidunt id. Phasellus pulvinar accumsan felis, eu condimentum nunc fringilla sed. Integer sit amet nunc et turpis congue pellentesque. Vestibulum a dui sed lectus sagittis facilisis nec suscipit elit. Aliquam posuere varius enim, sed interdum felis mollis eget.
+			</p>
+			<p>
+				In leo elit, fermentum ut diam non, ultrices eleifend nunc. Nunc nisl risus, dignissim ut imperdiet a, porttitor ac urna. Sed purus erat, posuere eget urna non, volutpat commodo sem. Donec tellus elit, accumsan sit amet congue in, ornare et ligula. Nullam odio nisi, tincidunt nec nibh a, egestas sagittis justo.
+			</p>
+			<br>
+			</div>
+		<div class="col-lg-6">
+			<img src="pexels-pixabay-461428.jpg" class="img-fluid"></img>
+
+
+		</div>
+	</div>
+</div>
+
+<!--- Connect -->
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-12">
+			<h2>Social media</h2>
+		</div>
+		<div class="col-12 social padding">
+			<a href="https://www.facebook.com/sondre.eftedal.9/"><i class="fab fa-facebook"></i> </a>
+			<a href="https://twitter.com/"><i class="fab fa-twitter"></i> </a>
+			<a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a>
+		</div>
+	</div>
+</div>
+
+<!--- Footer -->
+<footer>
+	<div class="container-fluid padding">
+		<div class="row text-center">
+			<div class="col-md-6">
+				<img src="Bluerose.png" width="300px" >
+				<hr class="light">
+				<p>93497708</p>
+				<p>info@bluerose.no</p>
+				<p>Navneveien 54</p>
+				<p>4633 Kristiansand S</p>
+			</div>
+			<div class="col-md-6">
+				<hr class="light">
+				<h5>Opening hours</h5>
+				<hr class="light">
+				<p>Monday-Friday: 8:00-16:00</p>
+				<p>Saturday: 10:00-16:00</p>
+				<p>Sunday: closed</p>
+			</div>
+		</div>
+	</div>
+	
+            <div class="container">
+                &copy; 2020 - FoodBlog - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        
+</footer>
+
+
+
+
+
+
+
