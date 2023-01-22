@@ -27,6 +27,7 @@ and see the other's posts
 - Log in
 - Index (list of all posts)
 - Index (my own posts)
+- Index (for each post)
 - Create post
 - Edit post
 - Delete post
